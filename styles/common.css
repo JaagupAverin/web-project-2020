@@ -1,0 +1,465 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------*/
+/* Global variables */
+/*------------------------------------------------------------------*/
+
+:root {
+    --background-color: #fff3de;
+    --text-color: #342417;
+    --warning-color: #d46666;
+    --text-font: 'PT Sans';
+    --main-color: #798f09;
+    --main-color-transparent: #798f09de;
+    --main-shadow: #39490e;
+    --main-shadow-transparent: #39490ea2;
+    --background-shadow: #fff3de;
+    --header-font: 'Amatic SC';
+    --light-color: #fffeed;
+    --header-height: 100px;
+    --footer-height: 65px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--text-font);
+    margin: 0;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+a {
+    /* Remove purple/underline from links. */
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+
+/*------------------------------------------------------------------*/
+/* Main (contains everything between header and footer) */
+/*------------------------------------------------------------------*/
+
+#main {
+    width: 100%;
+    text-align: center;
+}
+body * {
+    /* Text-align is used to center the #centered_main section. But its transitive, so reset it. */
+    text-align: left;
+}
+
+#centered_main {
+    display: inline-block;
+    margin-bottom: 100px;
+    min-height: calc(100vh - var(--footer-height) - 100px);
+}
+
+/*------------------------------------------------------------------*/
+/* Fonts */
+/*------------------------------------------------------------------*/
+/* pt-sans-regular - latin_latin-ext */
+@font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/pt-sans-v11-latin_latin-ext-regular.eot'); /* IE9 Compat Modes */
+    src: local('PT Sans'), local('PTSans-Regular'),
+         url('../fonts/pt-sans-v11-latin_latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/pt-sans-v11-latin_latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/pt-sans-v11-latin_latin-ext-regular.svg#PTSans') format('svg'); /* Legacy iOS */
+  }
+  
+  /* pt-sans-700 - latin_latin-ext */
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/pt-sans-v11-latin_latin-ext-700.eot'); /* IE9 Compat Modes */
+    src: local('PT Sans Bold'), local('PTSans-Bold'),
+         url('../fonts/pt-sans-v11-latin_latin-ext-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700.svg#PTSans') format('svg'); /* Legacy iOS */
+  }
+  
+  /* pt-sans-italic - latin_latin-ext */
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/pt-sans-v11-latin_latin-ext-italic.eot'); /* IE9 Compat Modes */
+    src: local('PT Sans Italic'), local('PTSans-Italic'),
+         url('../fonts/pt-sans-v11-latin_latin-ext-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/pt-sans-v11-latin_latin-ext-italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-italic.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/pt-sans-v11-latin_latin-ext-italic.svg#PTSans') format('svg'); /* Legacy iOS */
+  }
+  
+  /* pt-sans-700italic - latin_latin-ext */
+  @font-face {
+    font-family: 'PT Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../fonts/pt-sans-v11-latin_latin-ext-700italic.eot'); /* IE9 Compat Modes */
+    src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'),
+         url('../fonts/pt-sans-v11-latin_latin-ext-700italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700italic.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/pt-sans-v11-latin_latin-ext-700italic.svg#PTSans') format('svg'); /* Legacy iOS */
+  }
+  
+  
+@font-face {
+    font-family: 'Amatic SC';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/amatic-sc-v13-latin-ext-regular.eot');
+    src: local('Amatic SC Regular'), local('AmaticSC-Regular'), url('../fonts/amatic-sc-v13-latin-ext-regular.eot?#iefix') format('embedded-opentype'), 
+    url('../fonts/amatic-sc-v13-latin-ext-regular.woff2') format('woff2'), 
+    url('../fonts/amatic-sc-v13-latin-ext-regular.woff') format('woff'), 
+    url('../fonts/amatic-sc-v13-latin-ext-regular.ttf') format('truetype'), 
+    url('../fonts/amatic-sc-v13-latin-ext-regular.svg#AmaticSC') format('svg');
+}
+
+/* bellota-text-700 - latin */
+@font-face {
+    font-family: 'Bellota Text';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/bellota-text-v1-latin-700.eot'); /* IE9 Compat Modes */
+    src: local('Bellota Text Bold'), local('BellotaText-Bold'),
+    url('../fonts/bellota-text-v1-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/bellota-text-v1-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/bellota-text-v1-latin-700.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/bellota-text-v1-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/bellota-text-v1-latin-700.svg#BellotaText') format('svg'); /* Legacy iOS */
+}
+
+/*------------------------------------------------------------------*/
+/*
+Custom breaks (horizontal lines)
+Use as: <hr class="break">
+*/
+/*------------------------------------------------------------------*/
+
+.break {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 10%);
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+/*------------------------------------------------------------------*/
+
+.hide_overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*------------------------------------------------------------------*/
+
+.error {
+    display: block;
+    padding: 10px;
+    padding-left: 25px;
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 10%);
+}
+
+/*------------------------------------------------------------------*/
+/* Custom text-fields */
+/*------------------------------------------------------------------*/
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="datetime"],
+input[type="search"],
+input[type="password"],
+input[type="date"],
+input[type="time"]
+ {
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 5%);
+    background-color: var(--light-color);
+}
+
+/*------------------------------------------------------------------*/
+/* Custom buttons */
+/*------------------------------------------------------------------*/
+
+input[type="button"],
+input[type="submit"] {
+    text-align: center;
+    padding: 8px;
+    margin-top: 15px;
+    border: none;
+    background-color: var(--main-shadow);
+    color: var(--light-color);
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: var(--text-color);
+}
+
+/*------------------------------------------------------------------*/
+/*
+Custom checkmarks and radio-buttons.
+Based on: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+Use as:
+    <label class="checkbox">Label
+        <input>
+        <span></span>
+    </label>
+
+    <label class="radio">Label
+        <input>
+        <span></span>
+    </label>
+*/
+/*------------------------------------------------------------------*/
+
+/* Customize the label */
+.checkbox, .radio {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px; 
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the default inputs */
+.checkbox input,
+.radio input {
+    display: none;
+    position: absolute;
+}
+
+/* Create a custom input */
+.checkbox span,
+.radio span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+.checkbox span {
+    border-radius: 2px;
+}
+.radio span {
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a light background */
+.checkbox:hover input ~ span,
+.radio:hover input ~ span {
+    background-color: var(--main-color);
+    border: 2px solid var(--main-shadow);
+
+}
+
+/* When checked, add background */
+.checkbox input:checked ~ span,
+.radio input:checked ~ span {
+    background-color: var(--main-shadow);
+    border: 2px solid var(--main-shadow);
+
+}
+
+/* Create the indicator (hidden when not checked) */
+.checkbox span:after,
+.radio span:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator when checked */
+.checkbox input:checked ~ span:after,
+.radio input:checked ~ span:after {
+    display: block;
+}
+
+/* Style the indicator */
+.checkbox span:after {
+    left: 6px;
+    top: 1px;
+    width: 4px;
+    height: 10px;
+    border: solid var(--background-color);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-radius: 1px;
+} 
+.radio span:after {
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--background-color);
+}
+
+/*------------------------------------------------------------------*/
+/* Header */
+/*------------------------------------------------------------------*/
+
+header {
+    display: block;
+    width: 100%;
+    color: var(--light-color);
+    height: var(--header-height);
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 1;
+    box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 10%);
+}
+
+    header:after {
+        content: "";
+        background: url(../img/background.png);
+        background-color: var(--main-color);
+        background-blend-mode: multiply;
+        background-repeat: repeat;
+        opacity: 0.95;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    header .nav2 {
+        position: absolute;
+        display: inline-block;
+        top: 10px;
+        right: 10px;
+    }
+        header .nav2 div {
+            display: inline-block;
+        }
+        header .nav2 div:hover{
+            cursor: pointer;
+        }
+        header .nav2 div img {
+            width: 30px;
+            background-blend-mode: multiply;
+            margin-right: 15px;
+        }
+
+    header h1 {
+        display: inline-block;
+        position: relative;
+        font-family: var(--header-font);
+        margin: 0;
+        font-size: 50px;
+        margin-top: 15px;
+        text-shadow: 2px 2px 2px var(--main-shadow);
+        margin-left: 20px;
+        color: var(--light-color);
+    }
+
+    header nav {
+        float: right;
+        position: absolute;
+        bottom: 0px;
+        right: 20px;
+    }
+
+        header nav a {
+            display: inline-block;
+            background: linear-gradient(rgb(0,0,0),var(--text-color));
+            text-align: center;
+            border-radius: 5px 5px 0px 0px;
+            padding: 10px;
+            text-decoration: none;
+            box-shadow: 2px 0px 0px var(--main-shadow);
+            box-sizing: border-box;
+            color: var(--background-color);
+            font-weight: bold;
+            margin-right: 5px;
+            transition: padding-top 50ms;
+        }
+            header nav a:hover {
+                padding-top: 15px;
+            }
+            header nav .opened {
+                background: linear-gradient(var(--light-color), var(--background-color));
+                color: var(--text-color);
+                padding-top: 15px;
+            }
+
+#fixed_header {
+    position: fixed;
+}
+
+/*------------------------------------------------------------------*/
+/* Footer */
+/*------------------------------------------------------------------*/
+
+footer {
+    position: relative;
+    top: 100%;
+    background: rgb(30, 30, 30);
+    height: var(--footer-height);
+    font-size: 18px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+    footer #contacts {
+        margin: 0;
+        float: right;
+    }
+    footer #contacts * {
+        display: inline-block;
+        color: rgb(200, 200, 200);
+        margin: 0;
+        padding: 0;
+    }
+    footer #contacts li {
+        margin-right: 40px;
+    }
+
+    footer p {
+        display: inline-block;
+        margin: 0;
+        margin-left: 40px;
+        color: rgb(200, 200, 200);
+    }

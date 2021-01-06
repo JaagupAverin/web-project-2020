@@ -1,0 +1,19 @@
+<div class="result_item" id='%FOOD_ID%'>
+    <img class="image" src='%IMAGE%'>
+    <section class="info_section">
+        <div class="hide_overflow">
+            <p class="name">'%FOOD_NAME%'</p>
+            <a class="restaurant" href='%RESTAURANT_WEBSITE%' target="_blank">'%RESTAURANT_NAME%'</a>
+        </div>
+        <hr class="break">
+        <ul class="tags">'%TAGS%'</ul>
+    </section>
+    
+    <section class="order_section" onclick="addToBasket('%FOOD_ID%', ''%ESCAPED_FOOD_NAME%'', ''%PRICE%'', 1);">
+        <div class="order_tag">
+            <img class="icon" src="./img/add.png">
+            <p class="price">'%PRICE%'€</p>
+        </div>
+        <p class="quantity">Quantity: '%QUANTITY%'</p>
+    </section>
+</div>

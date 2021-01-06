@@ -1,0 +1,452 @@
+@charset "utf-8";
+@import "./common.css";
+
+/*------------------------------------------------------------------*/
+/* Filters and Results */
+/*------------------------------------------------------------------*/
+
+#filters_and_results {
+    --left_column_width: 215px;
+    --right_column_width: 640px;
+
+    display: inline-block;
+    min-width: calc(var(--left_column_width) + var(--right_column_width) + 100px);
+    margin-top: calc(var(--header-height) + 20px);
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/*------------------------------------------------------------------*/
+/* Filters */
+/*------------------------------------------------------------------*/
+
+#filters {
+    display: inline-block;
+    width: var(--left_column_width);
+    position: relative;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 3%);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 20%);
+}
+
+    #filters h2 {
+        color: rgb(60, 60, 60);
+        font-size: 18px;
+        margin: 0px;
+        margin-bottom: 8px;
+    }
+
+    #filters #clear_filters {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        margin: 0;
+        padding-top: 3px;
+        padding-bottom: 4px;
+        padding-left: 10px;
+        padding-right: 10px;
+        opacity: 0.5;
+        color: var(--text-color);
+        font-size: 16px;
+        background-color: rgba(0, 0, 0, 5%);
+        border-radius: 2px;
+        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 20%);
+    }
+    #filters #clear_filters:hover {
+        opacity: 0.75;
+    }
+    
+    #filters #query, #filters #submit_button {
+        width: 100%;
+    }
+
+/*------------------------------------------------------------------*/
+/* Results (container of items) */
+/*------------------------------------------------------------------*/
+
+#results {
+    display: inline-block;
+    width: var(--right_column_width);
+    vertical-align: top;
+    padding: 10px;
+}
+
+/*------------------------------------------------------------------*/
+/* Items */
+/*------------------------------------------------------------------*/
+
+.result_item {
+    --height: 125px;
+
+    --width: calc(var(--right_column_width) - var(--left_border));
+    --padding: 10px;
+
+    --image_height: var(--height);
+    --image_width: calc(var(--height) * 1.5);
+    
+    --order_section_width: 140px;
+    
+    --info_section_height: calc(var(--height) - var(--padding) * 2);
+    --info_section_width: calc(var(--width) - var(--image_width) - var(--order_section_width) - var(--padding) * 2);
+    
+    --left_border: 6px;
+    border-left: var(--left_border) solid var(--main-shadow);
+    display: block;
+    user-select: none;
+    box-sizing: border-box;
+    height: var(--height);
+    margin-bottom: 20px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-image: linear-gradient(to top, white 50%,var(--light-color) 100%);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 20%);
+}
+
+    /*------------------------------------------------------------------*/
+    /* Item -> Image */
+    /*------------------------------------------------------------------*/
+    
+    .result_item .image {
+        float: left;
+        height: 100%;
+        width: var(--image_width);
+    }
+
+    /*------------------------------------------------------------------*/
+    /* Item -> Info/Texts */
+    /*------------------------------------------------------------------*/
+
+    .result_item .info_section {
+        float: left;
+        height: var(--info_section_height);
+        width: var(--info_section_width);
+        padding: var(--padding);
+    }
+
+        .info_section .restaurant {
+            display: inline-block;
+            font-size: 15px;
+            color: rgba(0, 0, 0, 60%);
+            margin: 0;
+            margin-top: 2px;
+            cursor: pointer;
+
+            background-image: url('../img/house.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding-left: 24px;
+        }
+        .info_section .restaurant:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .info_section .name {
+            font-size: 18px;
+            color: rgba(0, 0, 0, 90%);
+            margin: 0;
+            margin-top: 2px;
+        }
+
+        .info_section .break {
+            margin-top: 4px;
+            margin-bottom: 6px;
+        }
+
+        .info_section .tags {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info_section .tags li {
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 6px;
+            background-color: var(--background-color);
+            opacity: 0.9;
+            border-radius: 5px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            padding-left: 7px;
+            padding-right: 7px;
+            color: rgba(0, 0, 0, 80%);
+            box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 10%);
+            font-size: 14px;
+        }
+
+        .info_section .tags .required {
+            background-image: url('../img/check.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding-left: 21px;
+        }
+    
+    /*------------------------------------------------------------------*/
+    /* Item -> Order */
+    /*------------------------------------------------------------------*/
+    
+    .result_item .order_section {
+        float: left;
+        position: relative;
+        width: var(--order_section_width);
+        height: var(--height);
+        cursor: pointer;
+    }
+        .order_section .quantity {
+            position: absolute;
+            color: rgba(40, 40, 40, 40%);
+            font-size: 18px;
+            left: 10px;
+            bottom: 5px;
+            margin: 0px;
+        }
+
+        .order_section .order_tag {
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            left: var(--padding);
+            top: -1px;
+            width: 75%;
+            height: 50px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background-color: var(--main-color);
+            overflow: hidden;
+            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 20%);
+            transition: height 150ms;
+        }
+    
+            .order_tag .icon {
+                position: absolute;
+                bottom: 50px;
+                left: 0;
+                right: 0;
+                height: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                transition: bottom 150ms;
+            }
+
+            .order_tag .price {
+                display: inline-block;
+                position: relative;
+                font-size: 30px;
+                padding: 5px;
+                top: 0;
+                color: rgb(40, 40, 40);
+                transition: top 150ms, font-size 150ms;
+                margin: 0;
+            }
+
+    /*------------------------------------------------------------------*/
+    /* Item -> HOVER EFFECTS */
+    /*------------------------------------------------------------------*/
+
+    .result_item:hover {
+        box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 30%);
+    }
+    
+    .result_item .order_section:hover .order_tag {
+        height: 95px;
+    }
+    .result_item .order_section:hover .order_tag .icon {
+        bottom: 35px;
+    }
+    .result_item .order_section:hover .order_tag .price {
+        top: 55px;
+        font-size: 24px;
+    }
+
+#results #no_results_notification {
+    display: block;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 3%);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 20%);
+    font-size: 24px;
+    color: rgba(50, 50, 50, 50%);
+}
+
+/*------------------------------------------------------------------*/
+/* Basket */
+/*------------------------------------------------------------------*/
+
+#basket {
+    --height: 450px;
+    --width: 330px;
+    --title_height: 75px;
+    --checkout_height: 80px;
+    --list_height: calc(var(--height) - var(--title_height) - var(--checkout_height));
+    --border_radius: 5px;
+
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    top: -10px;
+    width: var(--width);
+    height: 0px;
+    z-index: 1;
+    overflow: hidden;
+
+    background: linear-gradient(var(--light-color), var(--background-color));
+    border-bottom-left-radius: var(--border_radius);
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 20%);
+    transition: width 400ms, height 400ms;
+}
+
+    #basket_toggle_button {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        right: 15px;
+        top: 20px;
+        cursor: pointer;
+        z-index: 2;
+        background-color: var(--main-shadow-transparent);
+        border-radius: 40%;
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.5;
+        transition: top 200ms, right 200ms, opacity 100ms;
+    }
+
+    #basket_toggle_button:hover {
+        background-color: var(--main-shadow);
+    }
+    #basket_toggle_button img {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        height: 40px;
+        width: 40px;
+    }
+    #basket_toggle_button .open {
+        opacity: 1;
+        transition: opacity 100ms;
+    }
+    #basket_toggle_button .close {
+        opacity: 0;
+        transition: opacity 100ms;
+    }
+    #basket_toggle_button #counter_div {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        background-color: var(--main-color-transparent);
+        box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 20%);
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        text-align: center;
+        transition: opacity 200ms;
+    }
+        #basket_toggle_button #counter {
+            display: inline-block;
+            position: relative;
+            top: 4px;
+            margin: 0;
+            font-size: 18px;
+            color: var(--light-color);
+        }
+
+#basket h1 {
+    position: relative;
+    background-color: var(--main-shadow);
+    color: var(--light-color);
+    height: var(--title_height);
+    padding-top: 30px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#basket #basket_list {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+    #basket_list .basket_item {
+        position: relative;
+        height: 40px;
+        border-top: 1px solid rgba(0, 0, 0, 15%);
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+
+        #basket_list .basket_item * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #basket_list .basket_item .name {
+            display:block;
+            width: 230px;
+            height: 20px;
+            margin-left: 5px;
+            font-size: 16px;
+        }
+
+        #basket .basket_item .price_and_quantity {
+            display: block;
+            font-size: 18px;
+            margin-left: 5px;
+            margin-top: 0px;
+            font-weight: bold;
+        }
+
+        #basket_list .basket_item .remove {
+            position: absolute;
+            top: 12px;
+            right: 5px;
+            width: 40px;
+            height: 40px;
+            background: #7a2a16;
+            border-radius: 40%;
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+        }
+        #basket_list .basket_item .remove .minus {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            width: 12px;
+            height: 2px;
+            background-color: var(--light-color);
+        }
+
+        #basket_list .basket_item .remove:hover {
+            background: var(--text-color);
+        }
+
+#basket #checkout {
+    position: absolute;
+    width: 100%;
+    height: var(--checkout_height);
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 10%);
+    border-bottom-left-radius: var(--border_radius);
+}
+
+    #basket #checkout_button {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        border-bottom-left-radius: var(--border_radius);
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }

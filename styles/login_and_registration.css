@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@import "./common.css";
+
+header {
+    position: relative;
+}
+
+#login_and_register {
+    display: inline-block;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 3%);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 20%);
+}
+
+#login {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    padding-left: 10px;
+    width: 250px;
+}
+
+#register {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 3%);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 20%);
+}
+
+input {
+    width: 100%;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}

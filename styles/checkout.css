@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@import "./common.css";
+
+#go_back_button {
+    display: inline-block;
+    font-size: 20px;
+    color: var(--light-color);
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    background-color: var(--main-shadow-transparent);
+    border-radius: 35%;
+    user-select: none;
+}
+#go_back_button:hover {
+    background-color: var(--main-shadow);
+}
+#go_back_button img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+#checkout {
+    display: inline-block;
+    margin-top: 10px;
+    min-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 3%);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 20%);
+    height: 100%;
+}
+
+#list h1 {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+#list table {
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 16px;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 15%);
+}
+
+    #list table tr:first-child {
+        background-color: var(--main-color-transparent);
+    }
+    #list tr:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 3%);
+    }
+    #list tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 5%);
+    }
+    #list tr:last-child {
+        font-weight: bold;
+    }
+
+    #list .name {
+        min-width: 300px;
+        max-width: 300px;
+        padding: 0;
+    }
+    #list .restaurant {
+        min-width: 200px;
+        max-width: 200px;
+        padding: 0;
+    }
+
+    #list table td {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+    #list table td:last-child, td:nth-last-child(2), td:nth-last-child(3) {
+        text-align: right;
+    }
+
+#form_section {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+    #form_section #input_fields {
+        width: 50%;
+        padding-right: 20px;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    #form_section #input_fields input {
+        width: 100%;
+        display: block;
+    }
+
+    #form_section #submit {
+        float: right;
+        width: 50%;
+        height: 100px;
+        margin-top: 18px;
+        font-size: 26px;
+        border-radius: 2px;
+    }
